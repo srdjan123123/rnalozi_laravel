@@ -47,12 +47,15 @@ class NalogController extends Controller
       $validatedData = $request->validate(['administracija' => 'required', 'kupac' => 'required','operater' => 'required','status' => 'required']);
       //$this ->validate($request,['title'=>'required']);
 
+/*$a= $request->input('status');
+echo $a;*/
            $nalog = new Nalog;
            $nalog->administracija=$request->input('administracija');
            $nalog->kupac=$request->input('kupac');
            $nalog->operater=$request->input('operater');
            $nalog->status=$request->input('status');
            $nalog->save();
+
            return redirect('/nalogs/create')->with('success', 'Contact saved!');
 
     }
