@@ -25,7 +25,7 @@
         <a class="nav-link " href="../statuses/create">Status</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="../komercijalas/create">Komercijala</a>
+        <a class="nav-link " href="../nalogs/create">Nalog</a>
       </li>
     </ul>
   </nav>

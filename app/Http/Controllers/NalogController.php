@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Nalog;
+use App\Administracija;
+use App\Kupac;
+use App\Operater;
 use App\Status;
-class StatusController extends Controller
+class NalogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,8 +27,13 @@ class StatusController extends Controller
      */
     public function create()
     {
+      $nalogs=Nalog::all();
+      $administracijas=Administracija::all();
+      $kupacs=Kupac::all();
+      $operaters=Operater::all();
       $statuses=Status::all();
-      return view('statuses.create', compact('statuses'));
+      return view('nalogs.create', compact('nalogs','administracijas', 'kupacs', 'operaters', 'statuses'));
+
     }
 
     /**
@@ -35,16 +44,18 @@ class StatusController extends Controller
      */
     public function store(Request $request)
     {
-      $validatedData = $request->validate(['status' => 'required']);
+      $validatedData = $request->validate(['administracija' => 'required', 'kupac' => 'required','operater' => 'required','status' => 'required']);
       //$this ->validate($request,['title'=>'required']);
 
-           $status = new Status;
-           $status->status=$request->input('status');
-           $status->save();
-           return redirect('/statuses/create')->with('success', 'Contact saved!');
+           $nalog = new Nalog;
+           $nalog->administracija=$request->input('administracija');
+           $nalog->kupac=$request->input('kupac');
+           $nalog->operater=$request->input('operater');
+           $nalog->status=$request->input('status');
+           $nalog->save();
+           return redirect('/nalogs/create')->with('success', 'Contact saved!');
 
     }
-
 
     /**
      * Display the specified resource.
@@ -88,10 +99,10 @@ class StatusController extends Controller
      */
     public function destroy($id)
     {
-      $status = Status::find($id);
-      $status->delete();
+      $nalog = Nalog::find($id);
+      $nalog->delete();
 
-      return redirect('/statuses/create')->with('success', 'Contact deleted!');
+      return redirect('/nalogs/create')->with('success', 'Contact deleted!');
 
     }
 }

@@ -23,3 +23,4 @@ Route::resource('operaters', 'OperaterController');
 Route::resource('komercijalas', 'KomercijalaController');
 Route::resource('statuses', 'StatusController');
 Route::resource('kupacs', 'KupacController');
+Route::resource('nalogs', 'NalogController');

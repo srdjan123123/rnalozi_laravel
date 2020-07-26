@@ -19,6 +19,7 @@ class CreateNalogsTable extends Migration
             $table->string('administracija');
             $table->string('kupac');
             $table->string('operater');
+            $table->string('status');
         });
     }
 
