@@ -13,27 +13,38 @@
                 Status:<input type="text" class="form-control" name="status"/>
             </div> --}}
 
+            <?php
+            /*$nalozi = App\Status::find(4);
+            echo $nalozi;*/
+            //$nalozi = App\Status::find(4)->nalogs;
+          //  var_dump($nalozi);
 
+//dd($nalozi);
+//var_dump($nalozi);
+dd($flight);
+            ?>
 
+<h1>sadasd</h1>
+</br>
 
             <label for="administracija">Administracija:</label>
             <select  name="administracija">
               @foreach($administracijas as $administracija)
-              <option value='{{$administracija->ime}}'>{{$administracija->ime}}</option>
+              <option value='{{$administracija->id}}'>{{$administracija->ime}}</option>
               @endforeach
             </select>
 
             <label for="kupac">Kupac:</label>
             <select  name="kupac">
               @foreach($kupacs as $kupac)
-              <option value='{{$kupac->kupac}}'>{{$kupac->kupac}}</option>
+              <option value='{{$kupac->id}}'>{{$kupac->kupac}}</option>
               @endforeach
             </select>
 
             <label for="operater">Operater:</label>
             <select  name="operater">
             @foreach($operaters as $operater)
-              <option value='{{$operater->ime}}'>{{$operater->ime}}</option>
+              <option value='{{$operater->id}}'>{{$operater->ime}}</option>
               @endforeach
             </select>
 
@@ -41,7 +52,7 @@
             <label for="status">Status:</label>
             <select  name="status">
               @foreach($statuses as $status)
-              <option value='{{$status->status}}'>{{$status->status}}</option>
+              <option value='{{$status->id}}'>{{$status->status}}</option>
               @endforeach
             </select>
 
@@ -52,10 +63,12 @@
         </div>
         <div class="pt-5">
         @foreach($nalogs as $nalog)
-          Admnistracija:{{$nalog->administracija}}</br>
-          Kupac:{{$nalog->kupac}}</br>
-          Operater:{{$nalog->operater}}</br>
-          Status:{{$nalog->status}}
+
+
+          Admnistracija:{{$administracija->find($nalog->administracija)->ime}}</br>
+          Kupac:{{$kupac->find($nalog->kupac)->kupac}}</br>
+          Operater:{{$operater->find($nalog->operater)->ime}}</br>
+          Status:{{$status->find($nalog->status)->status}}
 <form action="{{ route('nalogs.destroy', $nalog->id)}}" method="post">
                   @csrf
                   @method('DELETE')
@@ -64,7 +77,13 @@
 </br>
 @endforeach
 </div>
+<h1>Pretraga</h1>
+
+
 @endsection
+
+
+
 
 {{--
 @foreach($administracijas as $administracija)

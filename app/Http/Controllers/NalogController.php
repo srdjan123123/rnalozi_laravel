@@ -32,7 +32,15 @@ class NalogController extends Controller
       $kupacs=Kupac::all();
       $operaters=Operater::all();
       $statuses=Status::all();
-      return view('nalogs.create', compact('nalogs','administracijas', 'kupacs', 'operaters', 'statuses'));
+      $nalozi = Status::find(3)->nalogs;
+      //$flight = Nalog::where('status', 3)->where('operater',2)->get();
+      $flight = Nalog::where('status', 2)->get();
+      $flight = $flight->where('operater', 1);
+      $flight = $flight->where('kupac', 2);
+      //$nalozi=$nalogg->nalogs();
+      return view('nalogs.create', compact('nalogs','administracijas', 'kupacs', 'operaters', 'statuses','nalozi','flight'));
+      //return view('nalogs.create')->with('nalozi',$nalogg->nalogs());
+
 
     }
 

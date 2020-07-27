@@ -8,7 +8,7 @@ class Status extends Model
 {
     protected $fillable = ['status'];
 
-    public function nalog(){
-      return  $this->hasMany('App\Nalog');
+    public function nalogs(){
+      return  $this->hasMany('App\Nalog','status');
     }
 }
