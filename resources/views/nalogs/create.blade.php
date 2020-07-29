@@ -21,7 +21,7 @@
 
 //dd($nalozi);
 //var_dump($nalozi);
-dd($flight);
+//dd($flight);
             ?>
 
 <h1>sadasd</h1>

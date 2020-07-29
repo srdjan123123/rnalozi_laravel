@@ -15,9 +15,39 @@ class NalogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+      $nalogs=Nalog::all();
+      $administracijas=Administracija::all();
+      $kupacs=Kupac::all();
+      $operaters=Operater::all();
+      $statuses=Status::all();
+
+//$s=$request->input('status');
+//if ($s !='Null') {
+//$validatedData = $request->validate(['administracija' => 'required', 'kupac' => 'required','operater' => 'required','status' => 'required']);
+$s=$request->input('status');
+$o=$request->input('operater');
+$k=$request->input('kupac');
+$a=$request->input('administracija');
+$flight = Nalog::all();
+if ($s!=Null){
+      //$flight = Nalog::where('status', $s)->get();
+      $flight = $flight->where('status', $s);
+    }
+    if ($a!=Null){
+      $flight = $flight->where('administracija', $a);
+      }
+      if ($o!=Null){
+      $flight = $flight->where('operater', $o);
+      }
+      if ($k!=Null){
+      $flight = $flight->where('kupac', $k);
+      }
+
+      return view('nalogs.index', compact('nalogs','administracijas', 'kupacs', 'operaters', 'statuses','flight'));
+      //dd($flight);
+      //dd($administracija->id);
     }
 
     /**
@@ -34,9 +64,10 @@ class NalogController extends Controller
       $statuses=Status::all();
       $nalozi = Status::find(3)->nalogs;
       //$flight = Nalog::where('status', 3)->where('operater',2)->get();
-      $flight = Nalog::where('status', 2)->get();
+
+      $flight = Nalog::where('status', 1)->get();
       $flight = $flight->where('operater', 1);
-      $flight = $flight->where('kupac', 2);
+      $flight = $flight->where('kupac', 1);
       //$nalozi=$nalogg->nalogs();
       return view('nalogs.create', compact('nalogs','administracijas', 'kupacs', 'operaters', 'statuses','nalozi','flight'));
       //return view('nalogs.create')->with('nalozi',$nalogg->nalogs());

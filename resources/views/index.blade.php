@@ -27,6 +27,9 @@
       <li class="nav-item">
         <a class="nav-link " href="../nalogs/create">Nalog</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link " href="../nalogs">Pretraga</a>
+      </li>
     </ul>
   </nav>
 
