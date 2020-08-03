@@ -54,6 +54,9 @@
               kupac:{{$flight2->kupac}}
               operater:{{$flight2->operater}}
               status:{{$flight2->status}}</br>
+
+    
+
               @endforeach
 
 

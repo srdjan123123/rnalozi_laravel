@@ -22,16 +22,16 @@
         </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="/novinalogmenu.php">Novi RN</a>
+      <a class="nav-link" href="../novinalogmenu.php">Novi RN</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/pretragamenu.php">Pretraga</a>
+      <a class="nav-link" href="../pretragamenu.php">Pretraga</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/izvestajmenu.php">Izveštaj</a>
+      <a class="nav-link" href="../izvestajmenu.php">Izveštaj</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/insertform.php">Podaci</a>
+      <a class="nav-link" href="../insertform.php">Podaci</a>
     </li>
 
   </ul>

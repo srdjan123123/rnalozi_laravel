@@ -2,7 +2,8 @@
 @section('main')
 
 <div class="pt-5">
-  <form method="post" action="{{ route('nalogs.store') }}">
+  <form method="post" action="{{ route('nalogs.update',$nalog->id) }}">
+     @method('PATCH')
             @csrf
 
 {{--            <div class="form-group">
@@ -62,22 +63,20 @@
         </form>
         </div>
         <div class="pt-5">
-        @foreach($nalogs as $nalog)
+
 
 
           Administracija:{{$administracija->find($nalog->administracija)->ime}}</br>
           Kupac:{{$kupac->find($nalog->kupac)->kupac}}</br>
           Operater:{{$operater->find($nalog->operater)->ime}}</br>
-          Status:{{$status->find($nalog->status)->status}}</br>
-          <a href="{{ route('nalogs.edit',$nalog->id)}}" class="btn btn-primary">Edit</a>
-
+          Status:{{$status->find($nalog->status)->status}}
 <form action="{{ route('nalogs.destroy', $nalog->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger btn-sm" type="submit" >Delete</button>
                 </form>
 </br>
-@endforeach
+
 </div>
 <h1>Pretraga</h1>
 

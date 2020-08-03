@@ -13,22 +13,22 @@
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="../administracijas/create">Administracija</a>
+        <a class="nav-link" href="/administracijas/create">Administracija</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../kupacs/create">Kupac</a>
+        <a class="nav-link" href="/kupacs/create">Kupac</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../operaters/create">Operater</a>
+        <a class="nav-link" href="/operaters/create">Operater</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="../statuses/create">Status</a>
+        <a class="nav-link " href="/statuses/create">Status</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="../nalogs/create">Nalog</a>
+        <a class="nav-link " href="/nalogs/create">Nalog</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="../nalogs">Pretraga</a>
+        <a class="nav-link " href="/nalogs">Pretraga</a>
       </li>
     </ul>
   </nav>

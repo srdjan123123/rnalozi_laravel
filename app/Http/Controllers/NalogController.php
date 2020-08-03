@@ -118,7 +118,12 @@ echo $a;*/
      */
     public function edit($id)
     {
-        //
+      $nalog = Nalog::find($id);
+      $administracijas=Administracija::all();
+      $kupacs=Kupac::all();
+      $operaters=Operater::all();
+      $statuses=Status::all();
+return view('nalogs.edit', compact('nalog','administracijas', 'kupacs', 'operaters', 'statuses'));   //
     }
 
     /**
@@ -130,7 +135,18 @@ echo $a;*/
      */
     public function update(Request $request, $id)
     {
-        //
+      $validatedData = $request->validate(['administracija' => 'required', 'kupac' => 'required','operater' => 'required','status' => 'required']);
+
+
+  $nalogs = Nalog::find($id);
+  $nalogs->status =  $request->get('status');
+  $nalogs->operater = $request->get('operater');
+  $nalogs->kupac = $request->get('kupac');
+  $nalogs->administracija = $request->get('administracija');
+
+  $nalogs->save();
+
+  return redirect('/nalogs')->with('success', 'Contact updated!');
     }
 
     /**
